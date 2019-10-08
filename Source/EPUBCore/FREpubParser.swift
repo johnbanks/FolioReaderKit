@@ -90,7 +90,7 @@ class FREpubParser: NSObject, SSZipArchiveDelegate {
         if let path = unzipPath, fileManager.fileExists(atPath: path) {
             bookBasePath = path
         } else {
-            bookBasePath = kApplicationDocumentsDirectory
+            bookBasePath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0].appendingPathComponent("unzipped")
         }
 
         bookBasePath = bookBasePath.appendingPathComponent(bookName)
